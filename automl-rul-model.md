@@ -39,9 +39,8 @@ Once the model is deployed it is exposed as a REST endpoint. The details of the 
 The model can be scored using a REST API.
 
 Using Postman client:
+![Score the model](./images/experiment-score.PNG)
 
-
-Using CURL:
 
 
 
