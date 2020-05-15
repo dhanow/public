@@ -5,4 +5,6 @@
 3. [Export model to mleap](https://dhanow.github.io/public/example_mleap_export.html)
 4. [Map vs FlatMap](https://dhanow.github.io/public/Map-FlatMap.html)
 5. [Compute Start and End Dates](https://dhanow.github.io/public/computeMonthStartEndGivenDateRange.html))
-
+6. [Listing files faster](https://dhanow.github.io/public/01_ListingFiles_Faster.html)
+7. [Delta table create and append](https://dhanow.github.io/public/01_Delta_table_create_and_append.html)
+8. [Delta table optimize and vaccum](https://dhanow.github.io/public/02_Delta_Optimize_Vaccum.html)
