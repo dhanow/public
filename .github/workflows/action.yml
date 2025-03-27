@@ -27,7 +27,10 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: databricks_dab/001_github_actions_cicd_push
+          sparse-checkout: |
+          .github
+          databricks_dab/001_github_actions_cicd_push
+          
 
       # Download the Databricks CLI.
       # See https://github.com/databricks/setup-cli
@@ -56,7 +59,9 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: databricks_dab/001_github_actions_cicd_push
+          sparse-checkout: |
+          .github
+          databricks_dab/001_github_actions_cicd_push
 
 
       # Use the downloaded Databricks CLI.
