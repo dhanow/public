@@ -3,6 +3,7 @@
 NOTE: 
 1. THIS NEEDS TO BE RUN FROM PUBLIC REPO, as environments can be created only in PUBLIC or paid repos
 2. The action.yml must be created at the repo root i.e public/.github/workflows/action.yml
+3. If your workflow keeps triggering pages-build-deployment workflow, then disable it by going to settings->pages and under "Branch" select "None" and save
 
 You can use GitHub Actions along with Databricks CLI bundle commands to automate, customize, and run your CI/CD workflows from within your GitHub repositories
 
