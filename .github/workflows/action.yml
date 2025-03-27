@@ -1,6 +1,6 @@
 # This workflow validates, deploys, and runs the specified bundle
 # within a pre-production target named "qa".
-name: 'Dev deployment'
+name: 'DAB cicd workflow'
 
 # Ensure that only a single job or workflow using the same concurrency group
 # runs at a time.

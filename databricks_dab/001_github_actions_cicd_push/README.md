@@ -1,6 +1,8 @@
 # CI/CD workflow with DAB and GitHub Actions
 
-NOTE: THIS NEEDS TO BE RUN FROM PUBLIC REPO, as environments can be created only in PUBLIC or paid repos
+NOTE: 
+1. THIS NEEDS TO BE RUN FROM PUBLIC REPO, as environments can be created only in PUBLIC or paid repos
+2. The action.yml must be created at the repo root i.e public/.github/workflows/action.yml
 
 You can use GitHub Actions along with Databricks CLI bundle commands to automate, customize, and run your CI/CD workflows from within your GitHub repositories
 
