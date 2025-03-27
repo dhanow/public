@@ -56,7 +56,7 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: .
+          sparse-checkout: ..
 
 
       # Use the downloaded Databricks CLI.
