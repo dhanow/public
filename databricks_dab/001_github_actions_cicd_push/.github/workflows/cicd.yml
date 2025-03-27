@@ -24,7 +24,7 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: ../
+          sparse-checkout: .
 
       # Download the Databricks CLI.
       # See https://github.com/databricks/setup-cli
@@ -33,7 +33,7 @@ jobs:
       # Deploy the bundle to the "qa" target as defined
       # in the bundle's settings file.
       - run: databricks bundle deploy
-        working-directory: dab
+        working-directory: .
         env:
           DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev
@@ -53,7 +53,7 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: ../
+          sparse-checkout: .
 
 
       # Use the downloaded Databricks CLI.
@@ -63,7 +63,7 @@ jobs:
       # bundle that was just deployed.
       # DATABRICKS ENV
       - run: databricks bundle run run_cicd_job --refresh-all
-        working-directory: dab
+        working-directory: .
         env:
           DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev      
