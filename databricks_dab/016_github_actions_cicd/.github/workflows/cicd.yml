@@ -37,15 +37,15 @@ jobs:
       # Deploy the bundle to the "qa" target as defined
       # in the bundle's settings file.
       - run: databricks bundle deploy
-        working-directory: .
+        working-directory: ..
         env:
-          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
+          DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev
 
   # Validate, deploy, and then run the bundle.
   # GIT ENV
   pipeline_update:
-    name: 'Run pipeline update'
+    name: 'Run job'
     runs-on: ubuntu-latest
     environment: dev
 
@@ -63,8 +63,8 @@ jobs:
       # Run the Databricks workflow named "my-job" as defined in the
       # bundle that was just deployed.
       # DATABRICKS ENV
-      - run: databricks bundle run my-job --refresh-all
-        working-directory: .
+      - run: databricks bundle run run_cicd_job --refresh-all
+        working-directory: ..
         env:
           DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev      
