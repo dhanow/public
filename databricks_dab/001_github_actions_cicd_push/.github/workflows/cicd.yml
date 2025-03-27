@@ -23,6 +23,8 @@ jobs:
     steps:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
+        with:
+          sparse-checkout: .
 
       # Download the Databricks CLI.
       # See https://github.com/databricks/setup-cli
@@ -39,7 +41,7 @@ jobs:
   # Validate, deploy, and then run the bundle.
   # GIT ENV
   pipeline_update:
-    name: 'Run job'
+    name: 'Run pipeline update'
     runs-on: ubuntu-latest
     environment: dev
 
@@ -50,6 +52,9 @@ jobs:
     steps:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
+        with:
+          sparse-checkout: .
+
 
       # Use the downloaded Databricks CLI.
       - uses: databricks/setup-cli@main
