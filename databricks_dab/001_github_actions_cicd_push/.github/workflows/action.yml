@@ -55,7 +55,7 @@ jobs:
 
     steps:
       # Check out this repo, so that this workflow can access it.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           sparse-checkout: databricks_dab/001_github_actions_cicd_push
 
