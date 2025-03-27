@@ -1,0 +1,14 @@
+# The main job for github_actions_cicd.
+resources:
+  jobs:
+    github_actions_cicd_job:
+      name: github_actions_cicd_job
+      tasks:
+        - task_key: task-1
+          notebook_task:
+            notebook_path: ../src/hello.ipynb
+        - task_key: task-2
+          depends_on:
+            - task_key: task-1
+          notebook_task:
+            notebook_path: ../src/world.ipynb
