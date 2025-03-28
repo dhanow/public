@@ -12,6 +12,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - databricks_dab/001_dab_gha_first_push_workflow/*
 
 jobs:
   # Used by the "pipeline_update" job to deploy the bundle.
