@@ -68,7 +68,7 @@ jobs:
       # Run the Databricks workflow named "dab_first_push_workflow" as defined in the
       # bundle that was just deployed.
       # DATABRICKS ENV
-      - run: databricks bundle run dab_githubactions_flagged_rides_job --refresh-all
+      - run: databricks bundle run dab_githubactions_flagged_rides_push_job --refresh-all
         working-directory: databricks_dab/002_dab_gha_flagged_rides_job_push_workflow
         env:
           DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}

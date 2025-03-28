@@ -4,8 +4,8 @@
 # As a result of this setup, you do not have to specify any notebook under /src
 resources:
   jobs:
-    dab_githubactions_flagged_rides_job:
-      name: dab_githubactions_flagged_rides_job
+    dab_githubactions_flagged_rides_push_job:
+      name: dab_githubactions_flagged_rides_push_job
       tasks:
         - task_key: taxi_raw_records
           notebook_task:
