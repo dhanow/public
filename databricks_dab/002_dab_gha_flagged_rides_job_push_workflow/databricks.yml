@@ -1,0 +1,42 @@
+# This is a Databricks asset bundle definition for top_n_flagged_rides_using_workspace_repos.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: dab_gha_flagged_rides_job_push_workflow
+  uuid: ac6fdf7b-6eed-46c6-8d1f-cfd4fc530059
+
+variables:
+  catalog:
+    description: The catalog to use
+    default: dab
+  schema:
+    description: The schema to use
+    default: dev
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-320655399781860.0.azuredatabricks.net
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-320655399781860.0.azuredatabricks.net
+      # We explicitly deploy to /Workspace/Users/sridhar.kothalanka@microsoft.com to make sure we only have a single copy.
+      root_path: /Workspace/Users/sridhar.kothalanka@microsoft.com/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: sridhar.kothalanka@microsoft.com
+        level: CAN_MANAGE
+    variables:
+      schema: prod
+
+
+

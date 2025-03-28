@@ -1,0 +1,40 @@
+# For this to work, the workspace must have a git repos folder setup
+# In this case the git folder is under /Workspace/Users/sridhar.kothalanka@microsoft.com
+# The repo is azure-databricks, and I did a sparce checkout using the folder 004_06_DLT_dlt_vs_streaming
+# As a result of this setup, you do not have to specify any notebook under /src
+resources:
+  jobs:
+    dab_gha_flagged_rides_job:
+      name: dab_gha_flagged_rides_job
+      tasks:
+        - task_key: taxi_raw_records
+          notebook_task:
+            notebook_path: ../src/002_1_ss_taxi_raw_records_bronze.ipynb
+            source: workspace
+        - task_key: flagged_rides
+          depends_on:
+            - task_key: taxi_raw_records
+          notebook_task:
+            notebook_path: ../src/002_2_ss_flagged_rides_silver1.ipynb
+            source: workspace
+        - task_key: weekly_stats
+          depends_on:
+            - task_key: taxi_raw_records
+          notebook_task:
+            notebook_path: ../src/002_3_ss_weekly_stats_silver2.ipynb
+            source: workspace
+        - task_key: top_n
+          depends_on:
+            - task_key: flagged_rides
+            - task_key: weekly_stats
+          notebook_task:
+            notebook_path: ../src/002_4_ss_top_n_flagged_gold.ipynb
+            source: workspace
+
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}            
+      queue:
+        enabled: true
