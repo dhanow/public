@@ -1,6 +1,6 @@
 # This workflow validates, deploys, and runs the specified bundle
 # within a pre-production target named "dev".
-name: '002_dab_gha_complete_job_push_workflow'
+name: '002_dab_gha_flagged_rides_job_push_workflow'
 
 # Ensure that only a single job or workflow using the same concurrency group
 # runs at a time.
