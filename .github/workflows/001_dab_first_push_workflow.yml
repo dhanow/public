@@ -1,6 +1,6 @@
 # This workflow validates, deploys, and runs the specified bundle
 # within a pre-production target named "qa".
-name: 'DAB cicd workflow'
+name: '001_dab_first_push_workflow'
 
 # Ensure that only a single job or workflow using the same concurrency group
 # runs at a time.
@@ -27,7 +27,7 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: databricks_dab/001_github_actions_cicd_push
+          sparse-checkout: databricks_dab/001_dab_first_push_workflow
          
 
       # Download the Databricks CLI.
@@ -37,7 +37,7 @@ jobs:
       # Deploy the bundle to the "qa" target as defined
       # in the bundle's settings file.
       - run: databricks bundle deploy
-        working-directory: databricks_dab/001_github_actions_cicd_push
+        working-directory: databricks_dab/001_dab_first_push_workflow
         env:
           DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev
@@ -57,7 +57,7 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: databricks_dab/001_github_actions_cicd_push
+          sparse-checkout: databricks_dab/001_dab_first_push_workflow
 
 
       # Use the downloaded Databricks CLI.
@@ -67,7 +67,7 @@ jobs:
       # bundle that was just deployed.
       # DATABRICKS ENV
       - run: databricks bundle run run_cicd_push_job --refresh-all
-        working-directory: databricks_dab/001_github_actions_cicd_push
+        working-directory: databricks_dab/001_dab_first_push_workflow
         env:
           DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev      
