@@ -10,7 +10,7 @@ variables:
     default: dab
   schema:
     description: The schema to use
-    default: dev
+    default: qa_cicd
 
 include:
   - resources/*.yml
