@@ -29,7 +29,7 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: databricks_dab/002_dab_gha_complete_push_workflow
+          sparse-checkout: databricks_dab/002_dab_gha_flagged_rides_job_push_workflow
          
 
       # Download the Databricks CLI.
@@ -39,7 +39,7 @@ jobs:
       # Deploy the bundle to the "dev" target as defined
       # in the bundle's settings file.
       - run: databricks bundle deploy
-        working-directory: databricks_dab/002_dab_gha_complete_push_workflow
+        working-directory: databricks_dab/002_dab_gha_flagged_rides_job_push_workflow
         env:
           DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev
@@ -59,7 +59,7 @@ jobs:
       # Check out this repo, so that this workflow can access it.
       - uses: actions/checkout@v3
         with:
-          sparse-checkout: databricks_dab/002_dab_gha_complete_push_workflow
+          sparse-checkout: databricks_dab/002_dab_gha_flagged_rides_job_push_workflow
 
 
       # Use the downloaded Databricks CLI.
@@ -69,7 +69,7 @@ jobs:
       # bundle that was just deployed.
       # DATABRICKS ENV
       - run: databricks bundle run dab_gha_flagged_rides_job --refresh-all
-        working-directory: databricks_dab/001_dab_gha_first_push_workflow
+        working-directory: databricks_dab/002_dab_gha_flagged_rides_job_push_workflow
         env:
           DATABRICKS_TOKEN: ${{ secrets.PAT_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev      
