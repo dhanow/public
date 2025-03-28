@@ -21,8 +21,6 @@
    add a secret to the environment, in this example I have used PAT_TOKEN
    Set the variable PAT_TOKEN to a databricks pat token
    Use the variable PAT_TOKEN in your `action.yml`
-3.    
-
 
 #### IDE
 * us vscode
