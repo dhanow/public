@@ -1,8 +1,8 @@
 # The main job for github_actions_cicd.
 resources:
   jobs:
-    001_dab_first_push_workflow:
-      name: 001_dab_first_push_workflow
+    dab_first_push_workflow:
+      name: dab_first_push_workflow
       tasks:
         - task_key: task-1
           notebook_task:
