@@ -13,7 +13,7 @@ on:
     branches:
       - master
     paths:
-      - databricks_dab/002_dab_gha_complete_push_workflow/src/*
+      - databricks_dab/002_dab_gha_flagged_rides_job_push_workflow/src/*
 
 jobs:
   # Used by the "pipeline_update" job to deploy the bundle.
